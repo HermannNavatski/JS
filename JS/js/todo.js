@@ -17,7 +17,15 @@ document.getElementById("add").onclick = function () {
 	out();
 	localStorage.setItem('todo', JSON.stringify(todoList));
 }
-
+/*
+var deleteButton = document.createElement('input');
+	deleteButton.type = 'button';
+	deleteButton.value = 'Delete';
+	deleteButton.onclick = deleteTodo;
+function deleteTodo(){
+	this.parentElement.remove();
+}
+*/
 function out(){
 	var out = "";
 	for(var key in todoList){
@@ -27,8 +35,7 @@ function out(){
 		else{
 			out += '<input type = "checkbox">';
 		}
-		out += todoList[key].todo + '<button id = "delete">Удалить</button>' +'<br>';
+		out += todoList[key].todo + '<button value="delete", id="deleteButton"></button> '+ '<br>';
 	}
 	document.getElementById('out').innerHTML = out;
 }
-
